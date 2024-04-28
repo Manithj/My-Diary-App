@@ -68,7 +68,7 @@ fun NotesList(navController: NavController, viewModel: NotesViewModel) {
             Scaffold(
                 topBar = {
                     GenericAppBar(
-                        title = stringResource(R.string.my_diary),
+                        title = "Welcome "+stringResource(R.string.name),
                         onIconClick = {
                             if (notes.value?.isNotEmpty() == true) {
                                 openDialog.value = true
@@ -78,6 +78,9 @@ fun NotesList(navController: NavController, viewModel: NotesViewModel) {
                                 Toast.makeText(context, "No Notes found.", Toast.LENGTH_SHORT)
                                     .show()
                             }
+                        },
+                        onSettingsClick = {
+                            navController.navigate(Constants.NAVIGATION_SETTINGS) // Use the correct route for navigation
                         },
                         icon = {
                             Icon(
@@ -126,7 +129,37 @@ fun NotesList(navController: NavController, viewModel: NotesViewModel) {
 
         }
     }
+
+//
+
+
+
 }
+
+//@Composable
+//fun GenericAppBar(
+//    title: String,
+//    onIconClick: () -> Unit,
+//    onSettingsClick: () -> Unit, // New action for settings icon
+//    iconState: MutableState<Boolean>,
+//    icon: @Composable () -> Unit
+//) {
+//    TopAppBar(
+//        title = { Text(text = title) },
+//        actions = {
+//            IconButton(onClick = onIconClick) {
+//                icon()
+//            }
+//            IconButton(onClick = onSettingsClick) {
+//                Icon(
+//                    imageVector = Icons.Default.Settings,
+//                    contentDescription = "Settings"
+//                )
+//            }
+//        }
+//    )
+//}
+
 
 @Composable
 fun SearchBar(query: MutableState<String>) {
@@ -451,4 +484,20 @@ class ApodApi(context: Context) {
         @GET("apod")
         fun getTodaysApod(@Query("api_key") apiKey: String): Call<ApodResponse>
     }
+
+//    @Composable
+//    fun SettingsScreen() {
+//        Surface(modifier = Modifier.fillMaxSize()) {
+//            Column(modifier = Modifier.padding(16.dp)) {
+//                Text("Settings", style = MaterialTheme.typography.h5)
+//                Spacer(modifier = Modifier.height(20.dp))
+//                Text("App Creator: [Your Name Here]")
+//                Text("Contact: [Your Email or Contact Info]")
+//                // Add more settings options as needed
+//            }
+//        }
+//    }
+
+
+
 }

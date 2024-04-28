@@ -10,7 +10,7 @@ const val NAVIGATION_NOTE_EDIT= "noteEdit/{noteId}"
 const val NAVIGATION_NOTE_ID_Argument = "noteId"
 const val TABLE_NAME = "Notes"
 const val DATABASE_NAME = "NotesDatabase"
-
+const val NAVIGATION_SETTINGS = "settings"  // New settings route
     fun noteDetailNavigation(noteId : Int) = "noteDetail/$noteId"
     fun noteEditNavigation(noteId : Int) = "noteEdit/$noteId"
 
