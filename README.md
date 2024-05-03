@@ -1,3 +1,3 @@
 # My-Diary-App
 
-Diary App developed using Kotlin
+Diary App developed using Kotlin and developed by `Manith Jayaba`.
